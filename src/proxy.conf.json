@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://api.mendeley.com",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

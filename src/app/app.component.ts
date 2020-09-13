@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   authorization() {
     let state = this.generateRandomString();
     let client_id = "8688";
-    let redirect_uri = "http://localhost:5000/callback";
+    let redirect_uri = "http://localhost:4200";
     let client_secret = "X21jDaXfGnmn4Ury";
     let response_type = "code"
     let scope = "all";
