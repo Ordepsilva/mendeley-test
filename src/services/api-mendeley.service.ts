@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpClient, HttpHeaders,
+  HttpClient, HttpHeaders
 } from "@angular/common/http";
 import { Observable } from 'rxjs';
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
 @Injectable({
   providedIn: 'root'
 })
 
+
 export class ApiMendeleyService {
 
-  APIURL: string = "https://api.mendeley.com/";
-  OAUTH: string = "oauth/";
+  private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+
+  APIURL: string = "http://localhost:5000/";
+  LOGIN: string = "login";
 
   constructor(private http: HttpClient) { }
 
-  public mendeleyoAuth(url: string): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-
-    return this.http.get<any>(this.APIURL + this.OAUTH + "authorize?" + url, { headers: headers });
+  public mendeleyoAuth(): Observable<any> {
+    return this.http.get<any>(this.APIURL + this.LOGIN);
   }
 
+  
 }
