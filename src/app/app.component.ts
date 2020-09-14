@@ -48,14 +48,14 @@ export class AppComponent implements OnInit {
     const payload = new HttpParams()
       .append('grant_type', 'authorization_code')
       .append('code', code)
-      .append('redirect_uri', 'http://localhost:4200')
+      .append('redirect_uri',  encodeURIComponent('http://localhost:4200'))
       .append('client_id', '8688')
       .append('client_secret', 'X21jDaXfGnmn4Ury');
 
 
     this.http.post('https://api.mendeley.com/oauth/token', payload, {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         Accept: '*/*',
       }
     }).subscribe(response => {
